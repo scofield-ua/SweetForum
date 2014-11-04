@@ -1,4 +1,4 @@
 SweetForum
 ==========
 
-SweetForum
+Forum / discussions engine.
