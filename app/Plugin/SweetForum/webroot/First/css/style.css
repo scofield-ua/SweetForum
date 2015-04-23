@@ -1,0 +1,167 @@
+a, select, input, button {outline: none !important}
+iframe,img {max-width: 100%}
+
+html, body {font-family: "Trebuchet MS", Verdana, Arial, Tahoma, sans-serif}
+
+nav.header {line-height: 30px; border: 0; border-radius: 0; background: #3F7CFF}
+nav.header a.navbar-brand {font-weight: 800; color:#fff; background: #3F7CFF}
+nav.header a.navbar-brand:hover {background: #3F7CFF; opacity: 1; color: #eee}
+nav.header .navbar-collapse, nav.header .navbar-collapse form {border: 0}
+nav.header .navbar-toggle {border:0; background: #fff}
+nav.header .navbar-toggle span {background-color: #000 !important}
+nav.header .navbar-toggle:hover {background: #fff}
+nav.header .navbar-toggle:hover span {background-color: orange !important}
+nav.header a {color: #fff !important}
+nav.header a.profile {font-weight: 800; margin-left: 15px}
+nav.header a.profile img {width: 15px; border-radius: 5px; margin-right: 10px}
+nav.header input {box-shadow: none !important; border: 0}
+
+nav.header a {transition: opacity 0.2s ease}
+nav.header a:hover {opacity: 0.75}
+
+nav.header.light {line-height: 50px}
+nav.header.light a.logo {font-weight: 800; text-decoration: none; font-size: 18px}
+
+ul.homepage-threads {list-style: none; padding: 0}
+ul.homepage-threads span {display: block}
+ul.homepage-threads a {padding: 15px; display: block; text-decoration: none; transition: border-bottom 0.25s ease, color 0.25s ease, background 0.25s ease; border-bottom: 1px solid #eee; color: #00559E}
+ul.homepage-threads a:hover {background: rgba(178, 217, 255, 0.12); color: #065193; border-bottom: 1px solid rgba(178, 217, 255, 0.12)}
+ul.homepage-threads a .name {font-weight: 800}
+
+.form .error-message {color: red; font-size: 12px; padding-top: 5px}
+.form .input-helper {position: absolute; right: 10px; top: 32px; font-size: 18px; cursor: pointer; opacity: 0.6; transition: opacity 0.2s ease}
+.form .input-helper:hover {opacity: 1}
+
+.footer {font-size: 12px; color: #999; margin-top: 25px}
+.footer a {color: #999; text-decoration: underline}
+
+/* modal */
+.modal-backdrop {background-color: #fff}
+.modal-backdrop.in {opacity: 0.75}
+
+.modal-dialog .modal-content {box-shadow: 0 0 25px rgba(0, 0, 0, 0.25); border: 5px solid #FFF}
+/* -- */
+
+/* typo */
+.page-header {padding: 0}
+/* -- */
+
+/* profile styles */
+.profile-page .profile-links {list-style: none; padding: 0; margin: 0}
+.profile-page .profile-links a {padding: 7.5px; display: block; color: #888; border-bottom: 1px solid #eee; transition: color 0.2s ease, background 0.2s ease}
+.profile-page .profile-links a:hover {background: #f7f7f7; text-decoration: none; color: #555}
+.profile-page .profile-links a span.glyphicon {float: left; margin-left: 10px; margin-right: 10px}
+.profile-page .profile-links a span.text {float: left}
+.profile-page .profile-links li:last-child a {border-bottom: 0}
+
+.notif-items {}
+.notif-items time {color: #777}
+.notif-items li {margin-bottom:7.5px; padding-bottom:7.5px; border-bottom:1px solid #ddd}
+.notif-items li p {margin: 0; padding: 0}
+
+/* thread */
+.topics-list {padding: 0; margin: 0; list-style: none}
+.topics-list h3 a {font-size: 16px; font-weight: 800; line-height: 20px}
+.topics-list h3 img {border-radius: 30%; margin-right: 10px}
+.topics-list li {border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 10px}
+.topics-list li time {font-size: 12px; color: #777}
+
+/* topic */
+h1.topic-h1 {padding: 10px 0; margin-top: 0; font-size: 26px; font-weight: 800}
+a.venobox img {max-width: 100%; margin-bottom: 5px; transition: box-shadow 0.2s ease, opacity 0.2s ease}
+a.venobox:hover img {box-shadow:0 0 10px rgba(0,0,0,0.2)}
+.topic-content p.not-supported {color: #777; font-style: italic}
+ul.topic-info {padding: 0; margin: 0}
+ul.topic-info li {display: inline; color: #777}
+ul.topic-info a {text-decoration: underline}
+ul.topic-author-buttons {list-style: none}
+ul.topic-info a, ul.topic-author-buttons a {color: #777}
+
+h4#comments select {font-size: 12px;padding: 0;color: #777; border:0; border-bottom:1px solid #ddd; cursor:pointer; transition:color 0.2s ease; margin-left:5px; position:relative; top:-2px}
+h4#comments select:hover {color:#333}
+
+/* comments */
+.add-comment img {border-radius: 5px}
+.add-comment.lock {position: absolute; left: 0; margin: 0; float: none; width: 90%; background: #fff; box-shadow: 0 0 5px rgba(0,0,0,0.15); padding: 15px; border-radius: 10px}
+
+.comments {list-style: none; padding: 0; margin: 0; margin-top: 15px}
+.comments ol, .comments li {list-style: none; padding: 0; margin: 0}
+.comments .item a {color: #777}
+.comments > li.item {border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px}
+.comments .comment-author-time {color: #777}
+.comments .comment-author-time img {border-radius: 30%}
+.comments .comment-text img {width: 100%; max-width: 300px}
+.comments .comment-text a.vbox-item {display: inline-block; margin-right: 10px; vertical-align: top; max-height: 150px; overflow: hidden}
+.comments ol.answers {margin-left: 40px; padding-left: 10px; border-left: 1px solid #eee}
+.comments ol.answers .answer-item {margin-top: 5px}
+
+a.complaint:hover {color: #D9534F; border-color: #D43F3A}
+
+/* Messages */
+.message-header-back {font-size: 22px; font-weight: 800; color: #777}
+
+ul.conversations {padding: 0; margin: 0}
+ul.conversations li {list-style: none; padding: 0; margin: 0; position: relative}
+ul.conversations li.not-checked a {background: #FFFAF6}
+ul.conversations li a {display: block; border-bottom: 1px solid #eee; color: #777; padding: 15px; transition: background 0.2s ease, color 0.2s ease}
+ul.conversations li a:hover {text-decoration: none; background: #FFFAF6}
+ul.conversations li img {width: 35px; margin-right: 10px}
+ul.conversations li h5 {padding: 0; margin: 0; font-weight: 800}
+ul.conversations li p {padding: 0; margin: 0; color: #999}
+ul.conversations li .text {overflow: hidden; height: 20px}
+ul.conversations li .opt-button {position: absolute; right: 5px; top: 33%; cursor: pointer; padding: 5px; background: #FFF; color: #777; border-radius: 5px; font-size: 12px; opacity: 0; transition: opacity 0.2s ease}
+ul.conversations li .opt-button:hover {color: #333}
+ul.conversations li:hover .opt-button {opacity: 1}
+
+ul.messages {padding: 0; margin: 0}
+ul.messages .item {padding: 0; margin: 0; margin-bottom: 15px; list-style: none}
+ul.messages .item .ava {width: 40px}
+ul.messages .item .author-name {padding: 0; margin: 0; font-weight: 800}
+ul.messages .item .time {font-size: 12px; color: #888; padding: 0; margin: 0}
+ul.messages .item.you .author-name {color: #999}
+ul.messages .row.info {margin-bottom: 5px}
+ul.messages .row.info .edit-buttons {font-size: 12px}
+ul.messages .row.info .edit-buttons > .btn-default {border: 0; padding: 0; margin-left: 5px; color: #777; opacity: 0.7}
+ul.messages .row.info .edit-buttons li a {font-size: 12px}
+ul.messages .row.info .gray {font-size: 11px; color: #777; margin-left: 5px}
+
+.page-header.messages-fixed {position: fixed; top: 0px; left: 0; margin: 0; background: #FFF; z-index: 100; padding: 0 0 10px 0; width: 100%;box-shadow: 0 5px 10px rgba(0, 0, 0, 0.04);}
+.page-header.messages-fixed h1 {font-size: 24px}
+
+.cake-sql-log td {padding: 7.5px 0; border-bottom: 1px solid #eee; font-size: 14px}
+
+@media (max-width: 992px) {
+	.page-header h1 {font-size: 28px}
+
+	h1.topic-h1 {font-size: 24px}
+
+	/* profile*/
+    .profile-page .summary {margin-top: 15px; border-top: 1px solid #ccc; padding-top: 15px}
+	.topic-content {border-top: 1px solid #ccc; padding-top: 15px}
+	.topic-comments {border-top: 1px solid #ccc;}
+	.topic-comments h4 {text-align: center; font-weight: 800}
+
+	.comments .buttons {text-align: right}
+
+	/* messages */
+	div.conversations {margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee}
+	ul.messages .row.info {padding-top: 10px}
+}
+
+@media (max-width: 768px) {
+	h1.topic-h1 {font-size: 21px}
+
+    nav.header .navbar-nav.navbar-right {text-align: center}
+    nav.header a.profile {border: 0}
+
+    .profile-page .summary h3 {font-size: 16px; font-weight: 800}
+
+	/* messages */
+	ul.messages .item {border-bottom: 1px solid #eee}
+}
+
+@media (max-width: 400px) {
+	.page-header h1 {font-size: 22px}
+
+	.topics-list h3 {font-size: 18px}
+}

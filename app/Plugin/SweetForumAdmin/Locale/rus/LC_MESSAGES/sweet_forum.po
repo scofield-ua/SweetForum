@@ -1,0 +1,155 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Lemonius\n"
+"POT-Creation-Date: 2014-04-27 17:04+0200\n"
+"PO-Revision-Date: 2015-04-17 19:26+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: ru\n"
+"X-Poedit-KeywordsList: Name\n"
+
+msgid "Leminus - light forum"
+msgstr "Leminus - легкий форум"
+
+msgid "Error"
+msgstr "Ошибка"
+
+msgid "Search"
+msgstr "Поиск"
+
+msgid "Sign In"
+msgstr "Вход"
+
+msgid "Sign Up"
+msgstr "Регистрация"
+
+msgid "Email"
+msgstr "Эл. адрес"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "Dont have an account?"
+msgstr "Нет аккаунта?"
+
+msgid "Have an account?"
+msgstr "Уже есть аккаунт?"
+
+msgid "Field value is empty"
+msgstr "Поле не может быть пустым"
+
+msgid "Password or email is incorrect"
+msgstr "Комбинация пароля и эл. адреса - неправильная"
+
+msgid "Your profile"
+msgstr "Ваш профиль"
+
+msgid "Edit profile"
+msgstr "Редактировать профиль"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Sign out"
+msgstr "Выйти"
+
+msgid "Your topics"
+msgstr "Вашы темы"
+
+msgid "Your comments"
+msgstr "Вашы комментарии"
+
+msgid "In topic"
+msgstr "В теме"
+
+msgid "last"
+msgstr "последние"
+
+msgid "Nothing yet"
+msgstr "Пока ничего"
+
+msgid "Update"
+msgstr "Обновить"
+
+msgid "Submit"
+msgstr "Отправить"
+
+msgid "Reset"
+msgstr "Восстановить"
+
+msgid "Loading"
+msgstr "Загрузка"
+
+msgid "Forgot password?"
+msgstr "Забыли пароль?"
+
+msgid "Forgot your password?"
+msgstr "Забыли свой пароль?"
+
+msgid "Password reset"
+msgstr "Восстановление пароля"
+
+msgid "Recovery password"
+msgstr "Восстановление пароля"
+
+msgid "Type your new password"
+msgstr "Придумайте новый пароль"
+
+msgid "Password is incorrect"
+msgstr "Пароль некорректый"
+
+msgid "Error. Something was wrong. Try again later."
+msgstr "Ошибка. Что-то пошло не так, попробуйте позже."
+
+msgid ""
+"We couldn't find you using the information you entered. Please try again."
+msgstr "Такой пользователь не зарегистрирован"
+
+msgid "We've sent password reset instructions to your email address."
+msgstr "Мы отправили вам письмо на почту"
+
+msgid "If you need to recovery password use this link"
+msgstr "Если вы хотите восстановить пароль, то воспользуйтесь этой ссылкой"
+
+msgid "You also can"
+msgstr "Вы также можете"
+
+msgid "unsubscribe"
+msgstr "отписаться"
+
+msgid "Profile page username"
+msgstr "Ссылка на профиль"
+
+msgid "Profile information"
+msgstr "Информация профиля"
+
+msgid "Information was updated"
+msgstr "Информация обновлена"
+
+msgid "Dashboard"
+msgstr "Приборная панель"
+
+msgid "Users"
+msgstr "Пользователи"
+
+msgid "Threads"
+msgstr "Разделы"
+
+msgid "All threads"
+msgstr "Все разделы"
+
+msgid "Topics"
+msgstr "Темі"
+
+msgid "All topics"
+msgstr "Все темі"

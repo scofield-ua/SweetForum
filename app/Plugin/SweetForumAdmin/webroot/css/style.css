@@ -1,0 +1,13 @@
+@import url('t.css');
+
+.page-header:first-child {margin-top: 0; padding-top: 0; padding-bottom: 2px}
+.page-header:first-child h3 {margin-top: 0}
+
+nav.navbar {background: #f5f8fa; border-radius:0}
+
+.well-nav {background: #f5f8fa; box-shadow: none; border: 1px solid #ddd; padding: 0; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05)}
+
+.sf-dashboard-nav li.nav-header {padding: 10px 15px; font-weight: 800; color: #444; border-bottom: 1px solid #c9d3de; margin: 10px 0}
+.sf-dashboard-nav li.nav-header:first-child {margin-top: 0}
+.sf-dashboard-nav .active a {background: #a6b6c8 !important}
+.sf-dashboard-nav a {padding: 7.5px 15px !important; border-radius: 0 !important; color: #777}

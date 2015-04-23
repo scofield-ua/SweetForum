@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Lemonius\n"
+"POT-Creation-Date: 2014-04-27 17:04+0200\n"
+"PO-Revision-Date: 2014-05-15 18:29+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: ru\n"
+"X-Poedit-KeywordsList: Name\n"
+
+msgid "This address is already taken"
+msgstr "Этот адрес уже занят"
+
+msgid "Please use Latin letters or numbers"
+msgstr "Поле может иметь только цифры и буквы латинского алфавита"
+
+msgid "Field value can't be empty"
+msgstr "Значение поля не может быть пустым"
+
+msgid "Field value length can't more then 100 characters"
+msgstr "Поле не должно иметь больше 100-а символов"

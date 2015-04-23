@@ -1,0 +1,1 @@
+<h4 class='nothing-found'><?= isset($text) ? $text : __d("sweet_forum", "Nothig yet"); ?></h4>
