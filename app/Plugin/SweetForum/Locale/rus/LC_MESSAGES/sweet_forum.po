@@ -1,0 +1,463 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Lemonius\n"
+"POT-Creation-Date: 2014-04-27 17:04+0200\n"
+"PO-Revision-Date: 2015-04-23 16:53+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: ru\n"
+"X-Poedit-KeywordsList: Name\n"
+
+msgid "Leminus - light forum"
+msgstr "Leminus - легкий форум"
+
+msgid "Error"
+msgstr "Ошибка"
+
+msgid "Search"
+msgstr "Поиск"
+
+msgid "Sign In"
+msgstr "Вход"
+
+msgid "Sign Up"
+msgstr "Регистрация"
+
+msgid "Email"
+msgstr "Эл. адрес"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "Dont have an account?"
+msgstr "Нет аккаунта?"
+
+msgid "Have an account?"
+msgstr "Уже есть аккаунт?"
+
+msgid "Field value is empty"
+msgstr "Поле не может быть пустым"
+
+msgid "Password or email is incorrect"
+msgstr "Комбинация пароля и эл. адреса - неправильная"
+
+msgid "Your profile"
+msgstr "Ваш профиль"
+
+msgid "Edit profile"
+msgstr "Редактировать профиль"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Sign out"
+msgstr "Выйти"
+
+msgid "Your topics"
+msgstr "Вашы темы"
+
+msgid "Your comments"
+msgstr "Вашы комментарии"
+
+msgid "In topic"
+msgstr "В теме"
+
+msgid "last"
+msgstr "последние"
+
+msgid "Nothing yet"
+msgstr "Пока ничего"
+
+msgid "Update"
+msgstr "Обновить"
+
+msgid "Submit"
+msgstr "Отправить"
+
+msgid "Reset"
+msgstr "Восстановить"
+
+msgid "Loading"
+msgstr "Загрузка"
+
+msgid "Forgot password?"
+msgstr "Забыли пароль?"
+
+msgid "Forgot your password?"
+msgstr "Забыли свой пароль?"
+
+msgid "Password reset"
+msgstr "Восстановление пароля"
+
+msgid "Recovery password"
+msgstr "Восстановление пароля"
+
+msgid "Type your new password"
+msgstr "Придумайте новый пароль"
+
+msgid "Password is incorrect"
+msgstr "Пароль некорректый"
+
+msgid "Error. Something was wrong. Try again later."
+msgstr "Ошибка. Что-то пошло не так, попробуйте позже."
+
+msgid ""
+"We couldn't find you using the information you entered. Please try again."
+msgstr "Такой пользователь не зарегистрирован"
+
+msgid "We've sent password reset instructions to your email address."
+msgstr "Мы отправили вам письмо на почту"
+
+msgid "If you need to recovery password use this link"
+msgstr "Если вы хотите восстановить пароль, то воспользуйтесь этой ссылкой"
+
+msgid "You also can"
+msgstr "Вы также можете"
+
+msgid "unsubscribe"
+msgstr "отписаться"
+
+msgid "Profile page username"
+msgstr "Ссылка на профиль"
+
+msgid "Profile information"
+msgstr "Информация профиля"
+
+msgid "Information was updated"
+msgstr "Информация обновлена"
+
+msgid "Language"
+msgstr "Язык"
+
+msgid "Dashboard"
+msgstr "Панель"
+
+msgid "Threads"
+msgstr "Разделы"
+
+msgid "Topics"
+msgstr "Темы"
+
+msgid "Message"
+msgstr "Сообщение"
+
+msgid "Messages"
+msgstr "Сообщения"
+
+msgid "Comments"
+msgstr "Комментарии"
+
+msgid "Activity"
+msgstr "Активность"
+
+msgid "Notifications"
+msgstr "Оповещения"
+
+msgid "Your notifications"
+msgstr "Ваши оповещения"
+
+msgid "edit"
+msgstr "редактировать"
+
+msgid "From old to new"
+msgstr "Сначала старые"
+
+msgid "From new to old"
+msgstr "Сначала новые"
+
+msgid "Reply"
+msgstr "Ответить"
+
+msgid "Edit comment"
+msgstr "Редактировать комментарий"
+
+msgid "Comment link"
+msgstr "Ссылка на комментарий"
+
+msgid "Post comment"
+msgstr "Отправить комментарий"
+
+msgid "Add new comment"
+msgstr "Добавить комментарий"
+
+msgid "answer"
+msgstr "ответ"
+
+msgid "edited"
+msgstr "редактировано"
+
+msgid "comment"
+msgstr "комментарий"
+
+msgid "You have comment from %s in %s"
+msgstr "Комментарий от пользователь %s в теме %s"
+
+msgid "You got like from %s for topic %s"
+msgstr "Пользователь %s поставил вам лайк за тему %s"
+
+msgid "You got %s from %s for comment in %s"
+msgstr "Вы получили %s от %s за ваш комментарий в %s"
+
+msgid "Your %s got liked by %s"
+msgstr "Вам %s понравился пользователю - %s"
+
+msgid "Send message to %s"
+msgstr "Отправить сообщение %s"
+
+msgid "Report user %s"
+msgstr "Пожаловаться на пользователя %s"
+
+msgid "Send message"
+msgstr "Отправить сообщение"
+
+msgid "Report user"
+msgstr "Пожаловатсья"
+
+msgid "Why you want to report this user"
+msgstr "Причина, из-за которой вы хотите пожаловаться на пользователя"
+
+msgid "Message text"
+msgstr "Текст сообщения"
+
+msgid "Message sent"
+msgstr "Сообщения отправлено"
+
+msgid "Message updated"
+msgstr "Сообщения отредактировано"
+
+msgid "Edit message"
+msgstr "Редактирование сообщения"
+
+msgid "Send"
+msgstr "Отправить"
+
+msgid "Report was successfully sent"
+msgstr "Ваше сообщение принято"
+
+msgid "User successfully blocked"
+msgstr "Пользователь успешно заблокирован"
+
+msgid "Conversations"
+msgstr "Диалоги"
+
+msgid "Inbox"
+msgstr "Входящие"
+
+msgid "Other"
+msgstr "Другое"
+
+msgid "Archived"
+msgstr "Удаленное"
+
+msgid "Blocked"
+msgstr "Заблокированное"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Edit"
+msgstr "Редактировать"
+
+msgid "Remove conversation"
+msgstr "Удалить диалог"
+
+msgid "Conversation with"
+msgstr "Переписка с"
+
+msgid "Block user"
+msgstr "Заблокировать пользователя"
+
+msgid "Load older message"
+msgstr "Показать более старые сообщения"
+
+msgid "You can't send message to this user, because you was blocked"
+msgstr ""
+"Этот пользователь заблокировал вас и вы не можете отправлять эму сообщения"
+
+msgid "back"
+msgstr "назад"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "Message deleted"
+msgstr "Сообщение удалено"
+
+msgid "Today at"
+msgstr "Сегодня в"
+
+msgid "Tomorrow at"
+msgstr "Вчера в"
+
+msgid "Type your message at"
+msgstr "Введите ваше сообщение"
+
+msgid "Blocked users"
+msgstr "Заблокированные пользователи"
+
+msgid "Your profile settings"
+msgstr "Настройки вашего профиля"
+
+msgid "Show link to your social page"
+msgstr "Показывать ссылку на страницу вашей социальной сети"
+
+msgid "Disable private messaging with you"
+msgstr "Запретить отправлять вам личные сообщения"
+
+msgid "Receive mail when someone sent you private message"
+msgstr ""
+"Получать уведомление на почту, если кто-то отправил вам личное сообщение"
+
+msgid "Privacy"
+msgstr "Приватность"
+
+msgid "No topics yet"
+msgstr "Пока что ниодной темы"
+
+msgid "Start new topic"
+msgstr "Добавить новую тему"
+
+msgid "Topic title"
+msgstr "Название"
+
+msgid "Topic content"
+msgstr "Текст"
+
+msgid "Post"
+msgstr "Добавить"
+
+msgid "Preview"
+msgstr "Просмотр"
+
+msgid "What tags you can use"
+msgstr "Какие теги вы можете использовать"
+
+msgid "Topic edit"
+msgstr "Редактирование темы"
+
+msgid "Topic page"
+msgstr "Страница темы"
+
+msgid "Back to editing"
+msgstr "Назад к редактированию"
+
+msgid "All users"
+msgstr "Все пользователи"
+
+msgid "Banned users"
+msgstr "Забаненные пользователи"
+
+msgid "Users reports"
+msgstr "Жалобы пользователей"
+
+msgid "All topics"
+msgstr "Все темы"
+
+msgid "All threads"
+msgstr "Все разделы"
+
+msgid "Users"
+msgstr "Пользователи"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Search by email"
+msgstr "Поиск по эл. адресу"
+
+msgid "Created"
+msgstr "Создано"
+
+msgid "Group"
+msgstr "Группа"
+
+msgid "User group"
+msgstr "Пользовательская группа"
+
+msgid "Admins"
+msgstr "Администраторы"
+
+msgid "Moderators"
+msgstr "Модераторы"
+
+msgid "User updated"
+msgstr "Пользователь обновлен"
+
+msgid "User group updated"
+msgstr "Группа для пользователя обновлена"
+
+msgid "Add new thread"
+msgstr "Добавить новый раздел"
+
+msgid "Add thread"
+msgstr "Добавить раздел"
+
+msgid "Edit thread"
+msgstr "Редактировать раздел"
+
+msgid "Title"
+msgstr "Название"
+
+msgid "Thread name"
+msgstr "Название раздела"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "URL"
+msgstr "Ссылка"
+
+msgid "Add"
+msgstr "Добавить"
+
+msgid "Topic added"
+msgstr "Раздел добавлен"
+
+msgid "Updated"
+msgstr "Обновлено"
+
+msgid "Deleted"
+msgstr "Удалено"
+
+msgid "Are you sure?"
+msgstr "Вы уверены?"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "User reported"
+msgstr "Пожаловались на"
+
+msgid "Reported by"
+msgstr "Кто пожаловался"
+
+msgid "Notification message"
+msgstr "Уведомление"
+
+msgid "You have new comment in your topic."
+msgstr "Новый комментарий в созданной вами теме"
+
+msgid "You receive new private message."
+msgstr "Вы получили новое приватное сообщение"
+
+msgid "Newer"
+msgstr "Новые"
+
+msgid "Older"
+msgstr "Старые"
+
+msgid "Comment text"
+msgstr "Текст комментария"
+
+msgid "Comment edit"
+msgstr "Редактирование комментария"

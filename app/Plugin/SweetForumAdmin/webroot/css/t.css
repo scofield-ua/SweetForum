@@ -1,0 +1,28 @@
+/* margings */
+.margin0 {margin: 0}
+.margin-top0 {margin-top: 0}
+.margin-top15 {margin-top: 15px}
+.margin-right5 {margin-right: 5px}
+.margin-right15 {margin-right: 15px}
+.margin-bottom5 {margin-bottom: 5px}
+.margin-bottom15 {margin-bottom: 15px}
+.margin-bottom30 {margin-bottom: 30px}
+
+/* paddings */
+.padding-top0 {padding-top: 0}
+.padding-left0  {padding-left: 0}
+.padding-right0 {padding-right: 5px}
+.padding-bottom15 {padding-bottom: 15px}
+
+.rel {position: relative}
+
+/* textarea */
+textarea.height-400 {height: 400px}
+
+/* color */
+.color-white {color: white}
+a.color-white:hover {color: white; text-decoration: none; opacity: 0.75}
+
+/* other */
+.overflow-hide {overflow: hidden}
+.error-message {color: #a40000; padding: 5px; font-size: 12px; margin-bottom: 0; padding-bottom: 0}
