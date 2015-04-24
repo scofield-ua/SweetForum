@@ -4,6 +4,7 @@ class SweetForumAppModel extends AppModel {
     public $recursive = -1;
     public $actsAs = array('Containable');
     public $validationDomain = 'validation';    
+	public $useDbConfig = 'sweet_forum';
 
     protected function _readDataSource($type, $query) {
         $cache_it = array_key_exists('cache_options', $query);
