@@ -405,7 +405,7 @@ CREATE TABLE IF NOT EXISTS `users_resend_password` (
 --
 DROP TABLE IF EXISTS `comment_likes_notifications`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`%` SQL SECURITY DEFINER VIEW `comment_likes_notifications` AS select `comments`.`topic_id` AS `topic_id`,`comments`.`id` AS `comment_id`,`comments`.`hash_id` AS `comment_hash_id`,`likes`.`user_id` AS `from_user_id`,`comments`.`user_id` AS `to_user_id`,`users_info`.`name` AS `from_user_name`,`users_info`.`username` AS `from_user_username`,`users_info`.`avatar` AS `from_user_avatar`,`likes`.`created` AS `created` from ((`likes` join `users_info` on((`likes`.`user_id` = `users_info`.`user_id`))) join `comments` on((`likes`.`type_id` = `comments`.`id`))) where ((`likes`.`type` = 1) and (`likes`.`user_id` <> `comments`.`user_id`));
+CREATE VIEW `comment_likes_notifications` AS select `comments`.`topic_id` AS `topic_id`,`comments`.`id` AS `comment_id`,`comments`.`hash_id` AS `comment_hash_id`,`likes`.`user_id` AS `from_user_id`,`comments`.`user_id` AS `to_user_id`,`users_info`.`name` AS `from_user_name`,`users_info`.`username` AS `from_user_username`,`users_info`.`avatar` AS `from_user_avatar`,`likes`.`created` AS `created` from ((`likes` join `users_info` on((`likes`.`user_id` = `users_info`.`user_id`))) join `comments` on((`likes`.`type_id` = `comments`.`id`))) where ((`likes`.`type` = 1) and (`likes`.`user_id` <> `comments`.`user_id`));
 
 -- --------------------------------------------------------
 
@@ -414,7 +414,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`%` SQL SECURITY DEFINER VIEW `comment
 --
 DROP TABLE IF EXISTS `topic_likes_notifications`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`%` SQL SECURITY DEFINER VIEW `topic_likes_notifications` AS select `topics`.`id` AS `topic_id`,`topics`.`name` AS `topic_name`,`topics`.`url` AS `topic_url`,`likes`.`user_id` AS `from_user_id`,`topics`.`user_id` AS `to_user_id`,`users_info`.`name` AS `from_user_name`,`users_info`.`username` AS `from_user_username`,`users_info`.`avatar` AS `from_user_avatar`,`likes`.`created` AS `created` from ((`likes` join `users_info` on((`likes`.`user_id` = `users_info`.`user_id`))) join `topics` on((`likes`.`type_id` = `topics`.`id`))) where ((`likes`.`type` = 0) and (`likes`.`user_id` <> `topics`.`user_id`));
+CREATE VIEW `topic_likes_notifications` AS select `topics`.`id` AS `topic_id`,`topics`.`name` AS `topic_name`,`topics`.`url` AS `topic_url`,`likes`.`user_id` AS `from_user_id`,`topics`.`user_id` AS `to_user_id`,`users_info`.`name` AS `from_user_name`,`users_info`.`username` AS `from_user_username`,`users_info`.`avatar` AS `from_user_avatar`,`likes`.`created` AS `created` from ((`likes` join `users_info` on((`likes`.`user_id` = `users_info`.`user_id`))) join `topics` on((`likes`.`type_id` = `topics`.`id`))) where ((`likes`.`type` = 0) and (`likes`.`user_id` <> `topics`.`user_id`));
 
 --
 -- Constraints for dumped tables
