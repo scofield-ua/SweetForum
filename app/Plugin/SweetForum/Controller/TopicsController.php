@@ -59,13 +59,13 @@ class TopicsController extends SweetForumAppController {
     }
 
     function add($thread = false) {
-        if($thread === false) throw new NotFoundException(4);
+        if($thread === false) throw new NotFoundException();
 
         // check thread
-        $this->loadModel('Thread');
+        $this->loadModel('SweetForum.Thread');
         $this->Thread->recursive = -1;
         $thread = $this->Thread->findByUrl($thread);
-        if(empty($thread)) throw new NotFoundException(4);
+        if(empty($thread)) throw new NotFoundException();
         
         if($this->request->is('post')) {
             if(array_key_exists('post', $this->request->data)) { // if post
@@ -84,7 +84,7 @@ class TopicsController extends SweetForumAppController {
                 $this->Topic->set($this->request->data);
 
                 if($this->Topic->save()) {
-                    $this->redirect('/topic/'.$this->request->data['Topic']['url']);
+                    $this->redirect(SWEET_FORUM_BASE_URL.'topic/'.$this->request->data['Topic']['url']);
                 } else {
                     $this->Session->setFlash(__d("sweet_forum", "Error"), 'default', array('class' => 'alert alert-danger margin-top15'));
                 }
@@ -94,7 +94,7 @@ class TopicsController extends SweetForumAppController {
                 $this->request->data['Topic']['text'] = TopicText::processText($this->request->data['Topic']['text']);                
                 $this->_makePreviewSession($this->request->data);                            
                 
-                $this->redirect('/topics/preview/'.$this->Session->read('TopicPreview.count'));
+                $this->redirect(SWEET_FORUM_BASE_URL.'topics/preview/'.$this->Session->read('TopicPreview.count'));
             }            
         }
 

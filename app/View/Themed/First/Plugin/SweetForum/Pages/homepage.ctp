@@ -7,7 +7,7 @@ if(count($threads) > 0) {
     foreach($threads as $t) {
         $name = "<span class='name'>".$t['Thread']['name']."</span> <span class='desc'>".$t['Thread']['description']."</span>";
 
-        echo "<li>".$this->Html->link($name, "/threads/view/".$t['Thread']['url'], array('escape' => false))."</li>";
+        echo "<li>".$this->Html->link($name, SWEET_FORUM_BASE_URL."threads/view/".$t['Thread']['url'], array('escape' => false))."</li>";
     }
     echo "</ul>";
     

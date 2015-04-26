@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 23, 2015 at 05:57 PM
+-- Generation Time: Apr 26, 2015 at 09:28 PM
 -- Server version: 5.1.65-community-log
 -- PHP Version: 5.3.18
 
@@ -16,40 +16,9 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `aros_acos`
+-- Database: `cakephp_forum`
 --
-
-CREATE TABLE IF NOT EXISTS `aros_acos` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `aro_id` int(10) unsigned NOT NULL,
-  `aco_id` int(10) unsigned NOT NULL,
-  `_create` char(2) NOT NULL DEFAULT '0',
-  `_read` char(2) NOT NULL DEFAULT '0',
-  `_update` char(2) NOT NULL DEFAULT '0',
-  `_delete` char(2) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `blog_posts`
---
-
-CREATE TABLE IF NOT EXISTS `blog_posts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `text` text NOT NULL,
-  `url` varchar(100) NOT NULL,
-  `created` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`),
-  KEY `user_id_2` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -74,9 +43,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   KEY `topic_id_2` (`topic_id`),
   KEY `answer_to_2` (`answer_to`),
   KEY `answer_to_3` (`answer_to`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 --
 -- Table structure for table `comments_activity`
@@ -108,9 +75,7 @@ CREATE TABLE IF NOT EXISTS `comments_info` (
   `is_modified` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'True means that comments was modified',
   PRIMARY KEY (`id`),
   KEY `comment_id` (`comment_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Stand-in structure for view `comment_likes_notifications`
@@ -143,9 +108,7 @@ CREATE TABLE IF NOT EXISTS `likes` (
   KEY `user_id` (`user_id`),
   KEY `type_id` (`type_id`),
   KEY `user_id_2` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Table structure for table `messages`
@@ -163,9 +126,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `to_user_id` (`to_user_id`,`from_user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=42 ;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Table structure for table `messages_info`
@@ -177,9 +138,7 @@ CREATE TABLE IF NOT EXISTS `messages_info` (
   `text` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `message_id` (`message_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=46 ;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Table structure for table `messages_users_archived`
@@ -219,8 +178,16 @@ CREATE TABLE IF NOT EXISTS `messages_users_blocked` (
 CREATE TABLE IF NOT EXISTS `settings` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `lang` varchar(10) NOT NULL DEFAULT 'eng',
+  `is_installed` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`id`, `lang`, `is_installed`) VALUES
+(1, 'rus', 0);
 
 -- --------------------------------------------------------
 
@@ -235,9 +202,7 @@ CREATE TABLE IF NOT EXISTS `threads` (
   `url` varchar(100) NOT NULL,
   `created` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Table structure for table `topics`
@@ -259,9 +224,7 @@ CREATE TABLE IF NOT EXISTS `topics` (
   KEY `user_id` (`user_id`),
   KEY `thread_id_2` (`thread_id`),
   KEY `user_id_2` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Table structure for table `topics_activity`
@@ -277,9 +240,7 @@ CREATE TABLE IF NOT EXISTS `topics_activity` (
   KEY `topic_id` (`topic_id`,`user_id`),
   KEY `topic_id_2` (`topic_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Stand-in structure for view `topic_likes_notifications`
@@ -313,9 +274,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `hash_id` (`hash_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Table structure for table `users_info`
@@ -331,9 +290,7 @@ CREATE TABLE IF NOT EXISTS `users_info` (
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Table structure for table `users_notification`
@@ -347,9 +304,7 @@ CREATE TABLE IF NOT EXISTS `users_notification` (
   `modified` date NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Table structure for table `users_privacy`
@@ -364,9 +319,7 @@ CREATE TABLE IF NOT EXISTS `users_privacy` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `user_id_2` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Table structure for table `users_reports`
@@ -381,9 +334,7 @@ CREATE TABLE IF NOT EXISTS `users_reports` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`,`by_user_id`),
   KEY `by_user_id` (`by_user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Table structure for table `users_resend_password`
@@ -396,9 +347,7 @@ CREATE TABLE IF NOT EXISTS `users_resend_password` (
   `created` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Structure for view `comment_likes_notifications`
@@ -419,12 +368,6 @@ CREATE VIEW `topic_likes_notifications` AS select `topics`.`id` AS `topic_id`,`t
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `blog_posts`
---
-ALTER TABLE `blog_posts`
-  ADD CONSTRAINT `blog_posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `comments`

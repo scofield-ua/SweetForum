@@ -13,7 +13,6 @@ class PagesController extends SweetForumAppController {
 
 	function homepage() {
 		$this->loadModel('SweetForum.Thread');
-		$this->loadModel('SweetForum.Blog');
 
 		$threads = $this->Thread->find('all',
 			array(
@@ -23,17 +22,8 @@ class PagesController extends SweetForumAppController {
 			)
 		);
 
-		$blog = $this->Blog->find('first',
-			array(
-				'fields' => array('Blog.url', 'Blog.name'),
-				'order' => 'Blog.id DESC',
-				'cache_options' => array('5_min')
-			)
-		);
-
 		$this->set(array(
 			'threads' => $threads,
-			'blog' => $blog
 		));
 	}
 	
