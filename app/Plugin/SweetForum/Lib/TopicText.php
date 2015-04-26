@@ -195,10 +195,10 @@ class TopicText {
                 switch($domain) {
                     case "instagram.com" :
                     case "instagr.am"  :
-                        $results = $HttpSocket->get('http://api.instagram.com/oembed', array('url' => $url, 'max-width' => 640, 'format' => 'json'));
+                        $results = $HttpSocket->get('http://api.instagram.com/oembed', array('url' => $url, 'max-width' => 640, 'format' => 'json'));                        
                         if($results->code != 404) {
-                            $results = json_decode($results->body, true);                        
-                            $results['html'] = '<img src="'.$results['url'].'" alt="'.$results['title'].'" title="'.$results['title'].'" data-author="'.$results['author_url'].'" />';                        
+                            $results = json_decode($results->body, true);                            
+                            $results['html'] = '<img src="'.$results['thumbnail_url'].'" alt="'.$results['title'].'" title="'.$results['title'].'" data-author="'.$results['author_url'].'" />';
                             
                             if(!empty($gallery_str)) {
                                 $results['html'] = "<a href='".$results['url']."' {$gallery_str}>".$results['html']."</a>";

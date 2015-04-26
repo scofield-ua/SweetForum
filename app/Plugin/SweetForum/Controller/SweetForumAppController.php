@@ -62,7 +62,7 @@ class SweetForumAppController extends AppController {
         if($this->name == 'Users' && $this->action == 'ban') return true;
         if($this->name == 'Users' && $this->action == 'signout') return true;
 
-        if($this->Auth->user('User.status') == '-1') $this->redirect('/users/ban');
+        //if($this->Auth->user('User.status') == '-1') $this->redirect('/users/ban');
     }
 
     /*
