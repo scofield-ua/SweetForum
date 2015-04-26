@@ -26,16 +26,6 @@ class SweetForumAppController extends AppController {
     function beforeFilter() {
 		$this->theme = 'First';
 
-		$prefixes = array('admin');
-
-        // проверяем права
-		$url = $_SERVER['REQUEST_URI'];
-		foreach($prefixes as $type) {
-			if(is_int(strpos($url, "/$type"))) {
-				if($this->Auth->user('User.role') != $type) throw new NotFoundException(4);
-			}
-		}
-
         $this->_checkForBan();
 
         $params = http_build_query($_GET);
@@ -43,11 +33,13 @@ class SweetForumAppController extends AppController {
         if(!empty($params)) $url .= "?{$params}";
 
 		$this->loadModel('SweetForum.Setting');
-		$forum_settings = $this->Setting->find('first',
-			array(
-				'cache_options' => array('name' => 'forum_settings')
-			)
-		);
+		$forum_settings = $this->Setting->find('first');		
+		
+		if(!(bool) $forum_settings['Setting']['is_installed']) {
+			if($this->request->here != SWEET_FORUM_BASE_URL.'mc/css' && $this->request->here != SWEET_FORUM_BASE_URL.'mc/js') {
+				if($this->request->here != SWEET_FORUM_BASE_URL.'install') $this->redirect(SWEET_FORUM_BASE_URL.'install');
+			}
+		}
 		
 		Configure::write('Config.language', $forum_settings['Setting']['lang']);
 
