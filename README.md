@@ -1,4 +1,4 @@
 SweetForum
 ==========
 
-Forum / discussions engine.
+Demo: http://sf.saydima.com/forum/
