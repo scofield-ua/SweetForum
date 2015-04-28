@@ -16,5 +16,3 @@
         <button class='btn btn-primary btn-lg btn-block' onclick='window.history.back();'><?= __d("sweet_forum", "Back to editing"); ?></button>
     </div>
 </div>
-
-<?php echo $this->Html->script(array('/sweet_forum/First/js/topics/view')); ?>
