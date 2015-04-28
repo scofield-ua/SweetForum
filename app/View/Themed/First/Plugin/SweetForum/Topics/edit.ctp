@@ -3,7 +3,7 @@
         <div class='row'>
             <div class='col-md-12'>
                 <div class="page-header">
-                    <h1><small><?= $this->Html->link('&#8592; '.__d("sweet_forum", "Topic page"), '/topic/'.$url, array('escape' => false)); ?></small></h1>
+                    <h1><small><?= $this->Html->link('&#8592; '.__d("sweet_forum", "Topic page"), SWEET_FORUM_BASE_URL.'topic/'.$url, array('escape' => false)); ?></small></h1>
                 </div>
             </div>
         </div>

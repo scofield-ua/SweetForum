@@ -227,7 +227,7 @@ class TopicsController extends SweetForumAppController {
                 'fields' => array('Topic.id', 'Topic.thread_id', 'Topic.name', 'Topic.status', 'Topic.text', 'Thread.url')
             )
         );
-        if(empty($find)) throw new NotFoundException(4);
+        if(empty($find)) throw new NotFoundException();
 
         if($this->request->is('post')) {
             $this->Topic->set($this->request->data);
@@ -242,21 +242,30 @@ class TopicsController extends SweetForumAppController {
                     if($this->Topic->save($this->request->data, false, $fields)) {
                         Cache::delete("topic_".md5($name.'1'), "sf_default");
                         Cache::delete("topic_".md5($name.'2'), "sf_default");
-                        $this->redirect("/topic/{$name}");
+                        $this->redirect(SWEET_FORUM_BASE_URL."topic/{$name}");
                     } else {
                         $this->Session->setFlash(__d("sweet_forum", "Error, topic not updated"), 'default', array('class' => 'alert alert-danger margin-top15'));
                     }
-                } else if(array_key_exists('preview', $this->request->data)) { // if preview button
+                } else if(array_key_exists('preview', $this->request->data)) { // if preview button                                    
                     App::uses('TopicText', 'SweetForum.Lib');
-                
-                    $this->request->data['Topic']['text'] = TopicText::processText($this->request->data['Topic']['text']);
+                    
+                    TopicText::$options = array(
+                        "cache_options" => array("duration" => "sf_default"),
+                        "gallery" => array(
+                            "class" => "venobox",
+                            "gallery-id" => "venobox-creator"
+                        ),
+                        "not_load_iframes" => true
+                    );
+                    $this->request->data['Topic']['text'] = TopicText::processText($this->request->data['Topic']['text']); 
+                    
                     $this->_makePreviewSession($this->request->data);                            
                 
-                    $this->redirect('/topics/preview/'.$this->Session->read('TopicPreview.count'));
+                    $this->redirect(SWEET_FORUM_BASE_URL.'topics/preview/'.$this->Session->read('TopicPreview.count'));
                 } else if(array_key_exists('delete', $this->request->data)) { // if delete button
                     $this->Topic->id = $find['Topic']['id'];
                     if($this->Topic->delete()) {
-                        $this->redirect('/threads/view/'.$find['Thread']['url']);
+                        $this->redirect(SWEET_FORUM_BASE_URL.'threads/view/'.$find['Thread']['url']);
                     } else {
                         $this->Session->setFlash(__d("sweet_forum", "Error, topic not deleted"), 'default', array('class' => 'alert alert-danger margin-top15'));                        
                     }
@@ -272,16 +281,17 @@ class TopicsController extends SweetForumAppController {
     }
 
     function preview($id = false) {
-        if($id === false) throw new NotFoundException(4);
+        if($id === false) throw new NotFoundException();
         $id = (int) $id;
-        if($id == 0) throw new NotFoundException(4);
+        if($id == 0) throw new NotFoundException();
 
-        if(!$this->Session->check("TopicPreview{$id}")) throw new NotFoundException(4);    
+        if(!$this->Session->check("TopicPreview{$id}")) throw new NotFoundException();        
         
         $this->set(array(
             'name' => $this->Session->read("TopicPreview{$id}.name"),
             'text' => $this->Session->read("TopicPreview{$id}.text"),    
-            'special_css' => array('/sweet_forum/First/css/venobox/venobox')
+            'special_min_css' => array('sweet_forum/First/css/venobox/venobox.css'),
+            'special_min_js' => array('sweet_forum/First/js/topics/view.js')
         ));
     }
     

@@ -201,7 +201,7 @@ class TopicText {
                             $results['html'] = '<img src="'.$results['thumbnail_url'].'" alt="'.$results['title'].'" title="'.$results['title'].'" data-author="'.$results['author_url'].'" />';
                             
                             if(!empty($gallery_str)) {
-                                $results['html'] = "<a href='".$results['url']."' {$gallery_str}>".$results['html']."</a>";
+                                $results['html'] = "<a href='".$results['thumbnail_url']."' {$gallery_str}>".$results['html']."</a>";
                             }
                         } else {
                             return $url;
@@ -260,7 +260,7 @@ class TopicText {
     }
     
     /*
-    *   Get social post data (supported: twitter, google+)
+    *   Get social post data (supported: twitter)
     *   @return array|string
     */
     public static function getSocialQuote($url) {

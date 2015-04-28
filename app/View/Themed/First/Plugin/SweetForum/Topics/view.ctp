@@ -18,11 +18,11 @@
                 </time>
             </li>
             <li>&#8594;</li>
-            <li><?= $this->Html->link($find['Thread']['name'], "/threads/view/".$find['Thread']['url']); ?></li>
+            <li><?= $this->Html->link($find['Thread']['name'], SWEET_FORUM_BASE_URL."threads/view/".$find['Thread']['url']); ?></li>
         </ul>
         <ul class='topic-author-buttons pull-right'>
             <?php
-                if($owner) echo "<li>".$this->Html->link(__d("sweet_forum", "Edit"), '/topics/edit/'.$find['Topic']['url'], array('class' => 'btn btn-default btn-xs'))."</li>";
+                if($owner) echo "<li>".$this->Html->link(__d("sweet_forum", "Edit"), SWEET_FORUM_BASE_URL.'topics/edit/'.$find['Topic']['url'], array('class' => 'btn btn-default btn-xs'))."</li>";
             ?>
         </ul>
     </div>

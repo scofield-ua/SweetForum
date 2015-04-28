@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
                 <?php
-                    echo $this->Form->create('User', array('class' => 'form', 'url' => '/users/signin'));
+                    echo $this->Form->create('User', array('class' => 'form', 'url' => SWEET_FORUM_BASE_URL.'users/signin'));
                     echo $this->Form->input('User.email', array('class' => 'form-control', 'div' => 'form-group', 'label' => __d("sweet_forum", "Email")));
                     echo $this->Form->input('User.password', array('class' => 'form-control', 'div' => 'form-group', 'label' => __d("sweet_forum", "Password")));
                     echo $this->Form->hidden('User.back_url', array('value' => $current_url));
