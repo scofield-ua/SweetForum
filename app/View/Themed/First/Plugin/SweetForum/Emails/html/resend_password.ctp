@@ -1,5 +1,5 @@
 <?php
-$url = $website."/users/password_reset/".$hash;
+$url = "http://".$_SERVER['SERVER_NAME'].SWEET_FORUM_BASE_URL."users/password_reset/".$hash;
 ?>
 <td bgcolor="#ffffff" style="padding: 40px 30px 40px 30px;">
     <table border="0" cellpadding="0" cellspacing="0" width="100%">

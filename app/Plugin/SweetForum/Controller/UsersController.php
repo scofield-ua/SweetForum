@@ -39,6 +39,90 @@ class UsersController extends SweetForumAppController{
 		}
 	}
 
+	/*
+	*	Social login
+	*/
+    function sign() {
+		$this->autoRender = false;
+
+		if($this->request->is('post')) {
+			$this->Auth->logout();
+			try {
+				$s = file_get_contents('http://ulogin.ru/token.php?token='.$_POST['token'].'&host='.$_SERVER['HTTP_HOST']);
+			} catch(Exception $e) {
+				throw new BadRequestException(__d("sweet_forum", "Error"));
+			}
+			$user = json_decode($s, true);
+
+			if(!isset($user['error'])) {
+				$back = $this->_getCurrentBackUrl();
+
+				// find user with such email
+				$this->User->recursive = 1;
+				$f = $this->User->findByEmail($user['email']);
+				// if not exists than create
+				if(empty($f)) {
+					$email_hash = md5(strtolower(trim($user['email'])));
+					$user['photo'] = "http://www.gravatar.com/avatar/{$email_hash}";
+
+					$data = array(
+						'User' => array(
+							'hash_id' => md5(date('YmdHis').Configure::read('Security.salt').rand(1,100).microtime()),
+							'email' => $user['email'],
+							'password' => "0",
+							'ip' => $this->Geo->getIp(),
+							'role' => 'user',
+							'status' => 0
+						),
+						'Info' => array(
+							'username' => md5(date('dmYHis').microtime().$user['email']),
+							'name' => $user['first_name'],
+							'avatar' => $user['photo']
+						),
+						'Privacy' => array(
+							'show_social_link' => true
+						),
+						'Notification' => array(
+							'new_topic_comment' => true
+						)
+					);
+
+					if(array_key_exists('profile', $user)) $data['Info']['social'] = $user['profile'];
+
+					if($this->User->saveAssociated($data)) {
+						unset($data['User']['password']);
+						$data['User']['id'] = $this->User->id;
+						$data['Info']['id'] = $this->User->Info->id;
+						$this->Auth->login($data);
+					}
+				} else {
+					$data = array(
+						'User' => array(
+							'id' => $f['User']['id'],
+							'hash_id' => $f['User']['hash_id'],
+							'email' => $f['User']['email'],
+							'ip' => $f['User']['ip'],
+							'role' => $f['User']['role'],
+							'status' => $f['User']['status']
+						),
+						'Info' => array(
+							'id' => $f['Info']['id'],
+							'username' => $f['Info']['username'],
+							'name' => $f['Info']['name'],
+							'avatar' => $f['Info']['avatar'],
+							'social' => $f['Info']['social']
+						),
+						'Privacy' => array(
+							'show_social_link' => $f['Privacy']['show_social_link']
+						)
+					);
+					$this->Auth->login($data);
+				}
+			}
+			echo $this->redirect($back);
+		}
+	}
+
 	function signin() {
 		if($this->Auth->loggedIn()) $this->redirect($this->_getCurrentBackUrl());
 
@@ -157,11 +241,10 @@ class UsersController extends SweetForumAppController{
 						'theme' => 'First',
 						'view' => 'SweetForum.resend_password',
 						'subject' => __d("sweet_forum", "Resend password"),
-						'from_email' => 'my@php720.com',
+						'from_email' => 'noreply@'.$_SERVER['SERVER_NAME'],
 						'from_name' => 'SweetForum',
 						'data' => array(
-							'hash' => $hash,
-							'website' => self::WEBSITE
+							'hash' => $hash,							
 						)
 					);
 
@@ -211,7 +294,7 @@ class UsersController extends SweetForumAppController{
 					$data = $this->User->findById($this->User->id);
 					unset($data['User']['password']);
 					$this->Auth->login($data);
-					$this->redirect('/');
+					$this->redirect(SWEET_FORUM_BASE_URL);
 				} else {
 					$this->Session->setFlash(__d("sweet_forum", "Something was wrong. Password not stored"), 'default', array('class' => 'alert alert-danger margin-top15'));
 				}

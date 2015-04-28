@@ -16,9 +16,7 @@
             echo $this->Form->end();            
         ?>
         
-        <p class='margin-top15'><?= __d("sweet_forum", "Have an account?")." ".$this->Html->link(__d("sweet_forum", "Sign In"), "/users/signin?back=".$current_back); ?></p>
-        
-        <?php echo $this->element('parts/social-login-links'); ?>
+        <p class='margin-top15'><?= __d("sweet_forum", "Have an account?")." ".$this->Html->link(__d("sweet_forum", "Sign In"), SWEET_FORUM_BASE_URL."users/signin?back=".$current_back); ?></p>
     </div>
 </div>
 <?php

@@ -27,7 +27,7 @@
                                 <p class='text-muted'><time datetime='{$date}'>{$pretty}</time></p>
                             </div>
                             <div class='col-md-10'>
-                                ".$this->Html->link($t['Topic']['name'], '/topic/'.$t['Topic']['url'], array('escape' => false))."
+                                ".$this->Html->link($t['Topic']['name'], SWEET_FORUM_BASE_URL.'topic/'.$t['Topic']['url'], array('escape' => false))."
                             </div>
                         </li>
                     ";
@@ -57,7 +57,7 @@
                                     <p class='text-muted'><time datetime='{$date}'>{$pretty}</time></p>
                                 </div>
                                 <div class='col-md-10'>
-                                    ".$this->Html->link(__d("sweet_forum", "In topic").': <strong>&laquo;'.h($c['Topic']['name']).'&raquo;', '/topic/'.$c['Topic']['url'].'#c-'.$c['Comment']['hash_id'], array('escape' => false))."</strong>
+                                    ".$this->Html->link(__d("sweet_forum", "In topic").': <strong>&laquo;'.h($c['Topic']['name']).'&raquo;', SWEET_FORUM_BASE_URL.'topic/'.$c['Topic']['url'].'#c-'.$c['Comment']['hash_id'], array('escape' => false))."</strong>
                                 </div>
                             </li>
                         ";

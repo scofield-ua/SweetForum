@@ -12,7 +12,7 @@
                     echo "<span class='input-helper eye glyphicon glyphicon-eye-open'></span>";
                 echo "</div>";
                 echo $this->Form->submit(__d("sweet_forum", "Reset"), array('class' => 'btn btn-primary pull-left'));
-                echo $this->Html->link(__d("sweet_forum", "Sign In"), "/users/signin", array("class" => "pull-right"));
+                echo $this->Html->link(__d("sweet_forum", "Sign In"), SWEET_FORUM_BASE_URL."users/signin", array("class" => "pull-right"));
                 echo $this->Form->end();
             }
             
