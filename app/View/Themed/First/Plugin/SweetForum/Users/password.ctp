@@ -9,7 +9,7 @@
                 echo $this->Form->create('User', array('class' => 'form clearfix'));
                 echo $this->Form->input('User.email', array('class' => 'form-control', 'div' => 'form-group', 'label' => __d("sweet_forum", "Email")));
                 echo $this->Form->submit(__d("sweet_forum", "Submit"), array('class' => 'btn btn-primary pull-left'));
-                echo $this->Html->link("<strong>".__d("sweet_forum", "Sign In")."</strong>", "/users/signin", array("class" => "pull-right", "escape" => false));
+                echo $this->Html->link("<strong>".__d("sweet_forum", "Sign In")."</strong>", SWEET_FORUM_BASE_URL."users/signin", array("class" => "pull-right", "escape" => false));
                 echo $this->Form->end();
             }                
             

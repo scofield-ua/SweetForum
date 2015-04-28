@@ -1,7 +1,6 @@
 <?php
 App::uses('Controller', 'Controller');
-class SweetForumAppController extends AppController {
-	const WEBSITE = "http://cakephp-forum";
+class SweetForumAppController extends AppController {	
 	const THEME = "First"; // треба буде зробити, щоб можна було змінювати динамічно
 
     public $components = array(
@@ -17,8 +16,8 @@ class SweetForumAppController extends AppController {
                 'controller' => 'users',
                 'action' => 'signin',
             ),
-            'logoutRedirect' => '/',
-            'loginRedirect' => '/',
+            'logoutRedirect' => SWEET_FORUM_BASE_URL,
+            'loginRedirect' => SWEET_FORUM_BASE_URL,
         ),
         'Session'
     );
