@@ -14,14 +14,14 @@ class SearchsController extends SweetForumAppController {
 
         foreach($fields as $var) if(array_key_exists($var, $this->request->query)) $$var = trim($this->request->query[$var]);
 
-        # проверка
-        if(!isset($s)) throw new NotFoundException(4);
-        if(empty($s)) throw new NotFoundException(4);
-        if(mb_strlen($s) < 2) throw new NotFoundException(41);
+        # check
+        if(!isset($s)) throw new NotFoundException();
+        if(empty($s)) throw new NotFoundException();
+        if(mb_strlen($s) < 2) throw new NotFoundException();
 
         $conds['AND'] = $this->SweetSearch->makeConditionsArray($s, "Topic.name");
 
-        # дополнительные параметры
+        # additional params
         if(isset($thread)) {
             $this->loadModel('SweetForum.Thread');
 
@@ -56,7 +56,7 @@ class SearchsController extends SweetForumAppController {
 
         $this->set(array(
             'topics' => $find,
-            'page_title' => __d("sweet_forum", "Search for ")." &laquo;".h($s)."&raquo;",
+            'page_title' => __d("sweet_forum", "Search").": &laquo;".h($s)."&raquo;",
             's' => $s
         ));
     }
