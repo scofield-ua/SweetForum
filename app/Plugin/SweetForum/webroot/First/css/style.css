@@ -77,6 +77,8 @@ ul.topic-info a {text-decoration: underline}
 ul.topic-author-buttons {list-style: none}
 ul.topic-info a, ul.topic-author-buttons a {color: #777}
 
+a.gallery-link {display: block}
+
 h4#comments select {font-size: 12px;padding: 0;color: #777; border:0; border-bottom:1px solid #ddd; cursor:pointer; transition:color 0.2s ease; margin-left:5px; position:relative; top:-2px}
 h4#comments select:hover {color:#333}
 
