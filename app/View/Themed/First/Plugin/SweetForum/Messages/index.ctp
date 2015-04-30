@@ -1,6 +1,8 @@
 <div class='row'>
-    <div class="page-header col-md-12">
-        <h1><small><?= __d("sweet_forum", "Conversations"); ?> &middot; <?= $current_page; ?></small></h1>
+    <div class="col-md-12">
+        <div class="page-header">
+            <h1><small><?= __d("sweet_forum", "Conversations"); ?> &middot; <?= $current_page; ?></small></h1>
+        </div>
     </div>
 </div>
 

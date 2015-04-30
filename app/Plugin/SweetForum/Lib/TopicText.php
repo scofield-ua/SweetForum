@@ -187,7 +187,7 @@ class TopicText {
                 // gallery string
                 $gallery_str = "";
                 if(!empty($options['gallery'])) {
-                    $gallery_str = "class='".$options['gallery']['class']."'";
+                    $gallery_str = "class='gallery-link ".$options['gallery']['class']."'";
                     if(array_key_exists('gallery-id', $options['gallery']))
                         $gallery_str .= " data-gall='".$options['gallery']['gallery-id']."'";
                 }                
