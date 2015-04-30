@@ -1,12 +1,14 @@
 <div class='row'>
-    <div class="page-header col-md-12">
-        <h1><?= __d("sweet_forum", "Comment edit"); ?></h1>
+    <div class='col-md-12'>
+        <div class="page-header">
+            <h1><?= __d("sweet_forum", "Comment edit"); ?></h1>
+        </div>
     </div>
     
     <div class='col-md-12'>
         <p>
             <strong><?= __d("sweet_forum", "Topic"); ?>:</strong>
-            <?= $this->Html->link($topic['Topic']['name'], '/topic/'.$topic['Topic']['url']); ?>
+            <?= $this->Html->link($topic['Topic']['name'], SWEET_FORUM_BASE_URL.'topic/'.$topic['Topic']['url']); ?>
         </p>
         <?php
         echo $this->Form->create('Comment', array('class' => 'form'));

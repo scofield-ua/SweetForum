@@ -1,18 +1,18 @@
 <?php
 /*
-*   Флаги
-*   -1 - пожаловались
+*   Flags
+*   -1 - reported
 */
 class TopicActivitiesController extends SweetForumAppController {
     function mark($url = false) {
         $this->autoRender = false;
 
-        if($url === false) throw new NotFoundException(4);
+        if($url === false) throw new NotFoundException();
 
         // check topic for existing
         $this->TopicActivity->Topic->recursive = -1;
         $f = $this->TopicActivity->Topic->findByUrl($url, array('id', 'user_id'));
-        if(empty($f)) throw new NotFoundException(4);
+        if(empty($f)) throw new NotFoundException();
 
         if($f['Topic']['user_id'] == $this->Auth->user('User.id')) throw new NotFoundException();
 
@@ -37,7 +37,7 @@ class TopicActivitiesController extends SweetForumAppController {
                     $ret['message'] = __d("sweet_forum", "Report accepted. This topic will be removed after 20 reports");
                     $ret['success'] = true;
                 } else {
-                    $ret['message'] = __d("sweet_forum", "Error. Reportd not accepted");
+                    $ret['message'] = __d("sweet_forum", "Error");
                 }                
 
                 // reports count

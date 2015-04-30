@@ -33,7 +33,7 @@
     <div class='col-md-2 text-center'>
         <div class='col-md-12 padding-bottom15'>
             <?php
-                echo "<p>".$this->Html->link($this->Html->image($find['Creator']['Info']['avatar']."?s=75"), '/u/'.$find['Creator']['Info']['username'], array('escape' => false))."</p>";
+                echo "<p>".$this->Html->link($this->Html->image($find['Creator']['Info']['avatar']."?s=75"), SWEET_FORUM_BASE_URL.'u/'.$find['Creator']['Info']['username'], array('escape' => false))."</p>";
                 echo "<p><strong>".$find['Creator']['Info']['name']."</strong></p>";
             ?>
         </div>
@@ -48,8 +48,7 @@
                 <?php
                     if($logged_in) {
                         if($user_data['User']['id'] != $find['Topic']['user_id'])  {
-                            echo $this->Html->link('<span class="glyphicon glyphicon-flag"></span>', '/topic_activities/mark/'.$find['Topic']['url'], array('escape' => false, 'class' => 'btn btn-default btn-xs complaint', 'title' => __d("sweet_forum", "Report this topic")));
-                        }
+                            echo $this->Html->link('<span class="glyphicon glyphicon-flag"></span>', SWEET_FORUM_BASE_URL.'topic_activities/mark/'.$find['Topic']['url'], array('escape' => false, 'class' => 'btn btn-default btn-xs complaint', 'title' => __d("sweet_forum", "Report this topic")));                        }
                     }
                 ?>
             </div>

@@ -77,7 +77,7 @@ class CommentsController extends SweetForumAppController {
     }
 
     function edit($hash_id = false) {
-        if($hash_id === false) throw new NotFoundException(4);
+        if($hash_id === false) throw new NotFoundException();
 
         // check comment
         $f = $this->Comment->find('first',
@@ -87,9 +87,9 @@ class CommentsController extends SweetForumAppController {
                 'fields' => array('Comment.id', 'Comment.topic_id', 'Info.text', 'Info.id')
             )
         );
-        if(empty($f)) throw new NotFoundException(4);
+        if(empty($f)) throw new NotFoundException();
 
-        $this->loadModel('Topic');
+        $this->loadModel('SweetForum.Topic');
         $topic = $this->Topic->find('first',
             array(
                 'conditions' => array('Topic.id' => $f['Comment']['topic_id']),
@@ -98,14 +98,14 @@ class CommentsController extends SweetForumAppController {
                 'cache_options' => array('duration' => '1_min')
             )
         );
-        if(empty($topic)) throw new NotFoundException(4);
+        if(empty($topic)) throw new NotFoundException();
 
         if($this->request->is('post')) {
             if(array_key_exists('delete', $this->request->data)) { // delete
                 $this->Comment->id = $f['Comment']['id'];
                 if($this->Comment->save(array('status' => -1), false)) {
                     $this->_deleteTopicCache($topic['Topic']['url']);
-                    $this->redirect('/topic/'.$topic['Topic']['url']);
+                    $this->redirect(SWEET_FORUM_BASE_URL.'topic/'.$topic['Topic']['url']);
                 } else {
                     $this->Session->setFlash(__d("sweet_forum", "Error. Comment not deleted"), 'default', array('class' => 'alert alert-error margin-top15'));
                 }
@@ -115,9 +115,9 @@ class CommentsController extends SweetForumAppController {
                 $this->request->data['Info']['is_modified'] = 1;
                 if($this->Comment->Info->save($this->request->data['Info'], true, array('text', 'is_modified')) && $this->Comment->save(array('modified' => date('Y-m-d H:i:s')), false)) {
                     $this->_deleteTopicCache($topic['Topic']['url']);
-                    $this->redirect('/topic/'.$topic['Topic']['url'].'#c-'.$hash_id);
+                    $this->redirect(SWEET_FORUM_BASE_URL.'topic/'.$topic['Topic']['url'].'#c-'.$hash_id);
                 } else {
-                    $this->Session->setFlash(__d("sweet_forum", "Error. Comment not changed"), 'default', array('class' => 'alert alert-error margin-top15'));                    
+                    $this->Session->setFlash(__d("sweet_forum", "Error"), 'default', array('class' => 'alert alert-error margin-top15'));                    
                 }
             }
         }

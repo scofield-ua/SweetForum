@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel"><?= __d("sweet_forum", "Sign In"); ?> \ <?= $this->Html->link(__d("sweet_forum", "Sign Up"), '/users/signup'); ?></h4>
+                <h4 class="modal-title" id="myModalLabel"><?= __d("sweet_forum", "Sign In"); ?> \ <?= $this->Html->link(__d("sweet_forum", "Sign Up"), SWEET_FORUM_BASE_URL.'users/signup'); ?></h4>
             </div>
             <div class="modal-body">
                 <?php
@@ -14,7 +14,7 @@
                     echo $this->Form->submit(__d("sweet_forum", "Sign In"), array('class' => 'btn btn-primary'));
                     echo $this->Form->end();
                 ?>
-            </div>            
+            </div>
         </div>
     </div>
 </div>
