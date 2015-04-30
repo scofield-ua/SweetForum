@@ -41,7 +41,7 @@ class MailMessagesController extends SweetForumAppController {
                 
                 if(!$receiver_user['Notification']['new_topic_comment']) throw new ForbiddenException();
                 
-                $topic_url = self::WEBSITE."/topic/".$topic['Topic']['url'];
+                $topic_url = "http://".$_SERVER['SERVER_NAME'].SWEET_FORUM_BASE_URL."topic/".$topic['Topic']['url'];
                 
                 $message = __d("sweet_forum", "You have new comment in your topic.");
                 $message .= "<br/> <a href='$topic_url'>".$topic['Topic']['name']."</a>";
@@ -62,10 +62,9 @@ class MailMessagesController extends SweetForumAppController {
             'theme' => 'First',
             'view' => 'SweetForum.notification',
             'subject' => __d("sweet_forum", "Notification"),
-            'from_email' => 'my@php720.com',
+            'from_email' => 'noreply@'.$_SERVER['SERVER_NAME'],
             'from_name' => 'SweetForum',
-            'data' => array(
-                'website' => self::WEBSITE,
+            'data' => array(                
                 'message' => $message
             )
         );

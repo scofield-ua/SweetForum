@@ -131,7 +131,7 @@ class LikesController extends SweetForumAppController {
                 }
             }
         }
-        throw new NotFoundException(4);
+        throw new NotFoundException();
     }
     
     /**

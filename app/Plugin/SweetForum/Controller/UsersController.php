@@ -17,7 +17,7 @@ class UsersController extends SweetForumAppController{
 		$back = "/";
 		if(array_key_exists('back', $this->params->query)) {
 			$back = trim($this->params->query['back']);
-			if(empty($back)) $back = "/";
+			if(empty($back)) $back = SWEET_FORUM_BASE_URL;
 		}
 
 		return $back;

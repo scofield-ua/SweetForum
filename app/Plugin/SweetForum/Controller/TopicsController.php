@@ -176,7 +176,7 @@ class TopicsController extends SweetForumAppController {
                 $mm = new MailMessagesController();                
                 $mm->send($f['Topic']['user_id'], 1, array('topic_id' => $f['Topic']['id']));
                 
-                $this->redirect('/topic/'.$f['Topic']['url'].'#c-'.$this->Session->read('Tmp.hash'));
+                $this->redirect(SWEET_FORUM_BASE_URL.'topic/'.$f['Topic']['url'].'#c-'.$this->Session->read('Tmp.hash'));
             }
         }
 
