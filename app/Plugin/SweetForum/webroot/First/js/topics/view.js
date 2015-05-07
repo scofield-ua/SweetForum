@@ -108,49 +108,6 @@ function replyAction() {
     return false;
 }
 
-function lockForm() {
-    var t = $(this);
-    var commentItem = t.parents('li.item');
-    var formDiv = $('.add-comment');
-    var top = t.offset().top; 
-    var formTop = top - commentItem.offset().top + 28;
-    var formLeft = 30;
-    var formWidth = commentItem.width() * 1;    
-    var form = formDiv.find('form');
-    var input = form.find('input[name*=answer_to][type=hidden]');
-    
-    if (!t.data("clicked")) {
-        // set other buttons to default
-        $('.comments a.reply').text(t.data('reply-text'));
-        $('.comments a.reply').data("clicked", false);
-        $('.comments ol.answers .buttons').removeClass('show').addClass('invisible');
-        
-        t.text(t.data('close-text'));
-        
-        formDiv.css('top', formTop).css('left', formLeft).css('width', formWidth).addClass('lock');
-        if(!formDiv.hasClass('lock')) formDiv.addClass('lock');
-        formDiv.find('h4').hide();        
-        
-        input.val($(this).data('to'));
-        
-        $("body").animate({ scrollTop: top - 25}, 200);
-        
-        t.parents('.buttons').addClass('show').removeClass('invisible');
-        
-        t.data("clicked", true);
-    } else {
-        t.text(t.data('reply-text'));
-        formDiv.removeClass('lock').removeAttr('style');
-        formDiv.find('h4').show();
-        input.val('');
-        t.data("clicked", false);
-        
-        t.parents('.buttons').removeClass('show');
-    }
-
-    return false;
-}
-
 function changeCommentsSorting() {    
     window.location = updateQueryStringParameter(window.location.href, 'comments', $(this).val()) + "#comments";
 }
