@@ -1,8 +1,9 @@
 var isSending = false;
 $(document).ready(function() {
     $('a.complaint').click(makeMark);
-    $('.comments a.reply').click(lockForm);
-    $('select.change-comments-sorting').change(changeCommentsSorting);
+    $('.comments a.reply').click(replyAction);
+    $('.add-comment .reply-cancel').click(cancelReplyAction);
+    $('select.change-comments-sorting').change(changeCommentsSorting);    
     
     var iframesToLoad = $('a.iframe-to-load');
     if (iframesToLoad.length > 0) {
@@ -69,14 +70,52 @@ function makeMark() {
     return false;
 }
 
+function cancelReplyAction() {
+    var t = $(this);
+    var forReply = $('.add-comment .for-reply');
+    var replyCancelButton = $('.add-comment .reply-cancel');
+    var input = $('.add-comment').find('input[name*=answer_to][type=hidden]');
+        
+    forReply.addClass('hide');
+    forReply.find('.panel-body').html("");
+    
+    replyCancelButton.addClass('hide');
+    
+    input.val("");
+    
+    return false;
+}
+
+function replyAction() {
+    var t = $(this);
+    var forReply = $('.add-comment .for-reply');
+    var replyCancelButton = $('.add-comment .reply-cancel');
+    var commentItem = t.parents('li.item');
+    var commentHtml = commentItem.find('.comment-text').html();
+    var input = $('.add-comment').find('input[name*=answer_to][type=hidden]');
+    
+    forReply.find('.panel-body').html(commentHtml);
+    forReply.removeClass('hide');
+    
+    replyCancelButton.removeClass('hide');
+    
+    input.val(t.data('to'));
+    
+    $('html, body').animate({
+        scrollTop: replyCancelButton.offset().top
+    }, 500);
+    
+    return false;
+}
+
 function lockForm() {
     var t = $(this);
+    var commentItem = t.parents('li.item');
     var formDiv = $('.add-comment');
-    var commentsDiv = $('.topic-comments');
     var top = t.offset().top; 
-    var formTop = top - commentsDiv.offset().top + 28;
+    var formTop = top - commentItem.offset().top + 28;
     var formLeft = 30;
-    var formWidth = commentsDiv.find('li.item:eq(0)').width() * 1;    
+    var formWidth = commentItem.width() * 1;    
     var form = formDiv.find('form');
     var input = form.find('input[name*=answer_to][type=hidden]');
     
@@ -107,7 +146,7 @@ function lockForm() {
         t.data("clicked", false);
         
         t.parents('.buttons').removeClass('show');
-    }    
+    }
 
     return false;
 }
