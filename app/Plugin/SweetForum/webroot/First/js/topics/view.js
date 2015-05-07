@@ -23,6 +23,17 @@ $(document).ready(function() {
     });
 });
 
+$(window).load(function() {
+    // scroll to comment if url has comment hash
+    var hash = window.location.hash;
+    var commentHash = "#c-";    
+    if (hash.indexOf(commentHash) != -1) {
+        $('html, body').animate({
+            scrollTop: $(hash).offset().top
+        }, 100);
+    }
+});
+
 function makeMark() {
     var t = $(this);
     var modal = $('#small-message-modal');
