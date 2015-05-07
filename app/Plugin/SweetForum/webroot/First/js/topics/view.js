@@ -1,8 +1,9 @@
 var isSending = false;
 $(document).ready(function() {
     $('a.complaint').click(makeMark);
-    $('.comments a.reply').click(lockForm);
-    $('select.change-comments-sorting').change(changeCommentsSorting);
+    $('.comments a.reply').click(replyAction);
+    $('.add-comment .reply-cancel').click(cancelReplyAction);
+    $('select.change-comments-sorting').change(changeCommentsSorting);    
     
     var iframesToLoad = $('a.iframe-to-load');
     if (iframesToLoad.length > 0) {
@@ -69,46 +70,41 @@ function makeMark() {
     return false;
 }
 
-function lockForm() {
+function cancelReplyAction() {
     var t = $(this);
-    var formDiv = $('.add-comment');
-    var commentsDiv = $('.topic-comments');
-    var top = t.offset().top; 
-    var formTop = top - commentsDiv.offset().top + 28;
-    var formLeft = 30;
-    var formWidth = commentsDiv.find('li.item:eq(0)').width() * 1;    
-    var form = formDiv.find('form');
-    var input = form.find('input[name*=answer_to][type=hidden]');
+    var forReply = $('.add-comment .for-reply');
+    var replyCancelButton = $('.add-comment .reply-cancel');
+    var input = $('.add-comment').find('input[name*=answer_to][type=hidden]');
+        
+    forReply.addClass('hide');
+    forReply.find('.panel-body').html("");
     
-    if (!t.data("clicked")) {
-        // set other buttons to default
-        $('.comments a.reply').text(t.data('reply-text'));
-        $('.comments a.reply').data("clicked", false);
-        $('.comments ol.answers .buttons').removeClass('show').addClass('invisible');
-        
-        t.text(t.data('close-text'));
-        
-        formDiv.css('top', formTop).css('left', formLeft).css('width', formWidth).addClass('lock');
-        if(!formDiv.hasClass('lock')) formDiv.addClass('lock');
-        formDiv.find('h4').hide();        
-        
-        input.val($(this).data('to'));
-        
-        $("body").animate({ scrollTop: top - 25}, 200);
-        
-        t.parents('.buttons').addClass('show').removeClass('invisible');
-        
-        t.data("clicked", true);
-    } else {
-        t.text(t.data('reply-text'));
-        formDiv.removeClass('lock').removeAttr('style');
-        formDiv.find('h4').show();
-        input.val('');
-        t.data("clicked", false);
-        
-        t.parents('.buttons').removeClass('show');
-    }    
+    replyCancelButton.addClass('hide');
+    
+    input.val("");
+    
+    return false;
+}
 
+function replyAction() {
+    var t = $(this);
+    var forReply = $('.add-comment .for-reply');
+    var replyCancelButton = $('.add-comment .reply-cancel');
+    var commentItem = t.parents('li.item');
+    var commentHtml = commentItem.find('.comment-text').html();
+    var input = $('.add-comment').find('input[name*=answer_to][type=hidden]');
+    
+    forReply.find('.panel-body').html(commentHtml);
+    forReply.removeClass('hide');
+    
+    replyCancelButton.removeClass('hide');
+    
+    input.val(t.data('to'));
+    
+    $('html, body').animate({
+        scrollTop: replyCancelButton.offset().top
+    }, 500);
+    
     return false;
 }
 

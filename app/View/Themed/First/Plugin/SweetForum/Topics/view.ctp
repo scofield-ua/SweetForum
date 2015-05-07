@@ -61,29 +61,44 @@
 </div>
 
 
-<div class='row topic-comments'>
+<div class='row topic-comments'>    
     <?= $this->element('topics/comments'); ?>
 </div>
 
 <div class='row add-comment'>
     <div class='col-md-12'>
         <?php if($logged_in) : ?>
-        <h4 class='padding-bottom15'><?= __d("sweet_forum", "Add new comment"); ?></h4>
-        <?php
-            $ava = $this->Html->image($user_data['Info']['avatar']."?s=34", array("align" => "left", "class" => "pull-right"));
-
-            echo $this->Form->create('Comment',
-                array(
-                    'inputDefaults' => array('label' => false),
-                    'class' => 'form clearfix'
-                )
-            );
-            echo $this->Form->input('Info.text', array('placeholder' => __d("sweet_forum", "Comment text"), 'type' => 'textarea', 'class' => 'form-control', 'div' => 'form-group'));
-            echo $this->Form->hidden('answer_to');
-            echo $this->Form->submit(__d("sweet_forum", "Post comment"), array('class' => 'btn btn-primary margin-right15 pull-left', 'escape' => false)).$ava;
-            echo $this->Form->end();
-            echo $this->Session->flash();
-        ?>
+        <div class='row for-reply hide'>            
+            <div class='col-md-12'>
+                <div class='panel panel-default'>
+                    <div class="panel-heading"><strong><?= __d("sweet_forum", "Comment to reply"); ?></strong></div>
+                    <div class="panel-body">                        
+                    </div>
+                </div>
+            </div>
+        </div>        
+        
+        <div class='row'>
+            <div class='col-md-12'>
+                <h4><?= __d("sweet_forum", "Add new comment"); ?></h4>
+                <?php
+                    $ava = $this->Html->image($user_data['Info']['avatar']."?s=34", array("align" => "left", "class" => "pull-right"));
+        
+                    echo $this->Form->create('Comment',
+                        array(
+                            'inputDefaults' => array('label' => false),
+                            'class' => 'form clearfix'
+                        )
+                    );
+                    echo $this->Form->input('Info.text', array('placeholder' => __d("sweet_forum", "Comment text"), 'type' => 'textarea', 'class' => 'form-control', 'div' => 'form-group', 'rows' => 4));
+                    echo $this->Form->hidden('answer_to');
+                    echo $this->Form->submit(__d("sweet_forum", "Post comment"), array('class' => 'btn btn-primary margin-right15 pull-left', 'escape' => false));
+                    echo $this->Form->button(__d("sweet_forum", "Cancel"), array('class' => 'btn btn-default margin-right15 pull-left reply-cancel hide', 'escape' => false)).$ava;
+                    echo $this->Form->end();
+                    echo $this->Session->flash();
+                ?>
+            </div>
+        </div>        
         <?php endif; ?>
     </div>
 </div>
