@@ -24,7 +24,7 @@
                     
                     $options = '
                         <div class="btn-group">
-                            '.$this->Html->link('<span class="glyphicon glyphicon-off"></span>', '/admin/users/ban/'.$user['User']['id'], array('class' => 'btn btn-xs btn-default ban '.$ban_class, 'title' => __d('sweet_forum', 'Unban'), 'escape' => false)).'
+                            '.$this->Html->link('<span class="glyphicon glyphicon-off"></span>', SWEET_FORUM_BASE_URL.'admin/users/ban/'.$user['User']['id'], array('class' => 'btn btn-xs btn-default ban '.$ban_class, 'title' => __d('sweet_forum', 'Unban'), 'escape' => false)).'
                         </div>
                     ';
 
