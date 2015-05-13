@@ -30,14 +30,14 @@
                             <td><small>".$item['UserReport']['id']."</small></td>
                             <td>
                                 <small>
-                                    ".$this->Html->link($item['User']['Info']['name'], '/u/'.$item['User']['Info']['username'])."
+                                    ".$this->Html->link($item['User']['Info']['name'], SWEET_FORUM_BASE_URL.'u/'.$item['User']['Info']['username'])."
                                     ".$this->Html->link('<span class="glyphicon glyphicon-user"></span>', '/admin/users/index?email='.$item['User']['email'], array('class' => 'btn btn-default btn-xs', 'escape' => false))."
                                 </small>
                             </td>
                             <td>
                                 <small>
-                                    ".$this->Html->link($item['ByUser']['Info']['name'], '/u/'.$item['ByUser']['Info']['username'])."
-                                    ".$this->Html->link('<span class="glyphicon glyphicon-user"></span>', '/admin/users/index?email='.$item['ByUser']['email'], array('class' => 'btn btn-default btn-xs', 'escape' => false))."
+                                    ".$this->Html->link($item['ByUser']['Info']['name'], SWEET_FORUM_BASE_URL.'u/'.$item['ByUser']['Info']['username'])."
+                                    ".$this->Html->link('<span class="glyphicon glyphicon-user"></span>', SWEET_FORUM_BASE_URL.'admin/users/index?email='.$item['ByUser']['email'], array('class' => 'btn btn-default btn-xs', 'escape' => false))."
                                 </small>
                             </td>
                             <td><small>".$item['UserReport']['report_message']."</small></td>

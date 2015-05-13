@@ -43,15 +43,15 @@
                     
                     $options = '
                         <div class="btn-group">
-                            '.$this->Html->link('<span class="glyphicon glyphicon-off"></span>', '/admin/users/ban/'.$user['User']['id'], array('class' => 'btn btn-xs btn-default ban '.$ban_class, 'title' => __d('sweet_forum', 'Ban'), 'escape' => false)).'
+                            '.$this->Html->link('<span class="glyphicon glyphicon-off"></span>', SWEET_FORUM_BASE_URL.'admin/users/ban/'.$user['User']['id'], array('class' => 'btn btn-xs btn-default ban '.$ban_class, 'title' => __d('sweet_forum', 'Ban'), 'escape' => false)).'
                             <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </button>                            
                             
                             <ul class="dropdown-menu text-left pull-right" role="menu">                                
-                                <li>'.$this->Html->link(__d("sweet_forum", "Edit"), '/admin/users/edit/'.$user['User']['id'], array('escape' => false)).'</li>                                
-                                <li>'.$this->Html->link(__d("sweet_forum", "Group"), '/admin/users/group/'.$user['User']['id'], array('escape' => false)).'</li>                                
-                                <li>'.$this->Html->link(__d("sweet_forum", "Delete"), '/admin/users/edit/'.$user['User']['id'], array('confirm' => __("Are you sure?"), 'escape' => false)).'</li>
+                                <li>'.$this->Html->link(__d("sweet_forum", "Edit"), SWEET_FORUM_BASE_URL.'admin/users/edit/'.$user['User']['id'], array('escape' => false)).'</li>                                
+                                <li>'.$this->Html->link(__d("sweet_forum", "Group"), SWEET_FORUM_BASE_URL.'admin/users/group/'.$user['User']['id'], array('escape' => false)).'</li>                                
+                                <li>'.$this->Html->link(__d("sweet_forum", "Delete"), SWEET_FORUM_BASE_URL.'admin/users/edit/'.$user['User']['id'], array('confirm' => __("Are you sure?"), 'escape' => false)).'</li>
                             </ul>
                         </div>
                     ';

@@ -14,7 +14,7 @@ class UsersController extends SweetForumAppController{
 
 	private function _getCurrentBackUrl() {
 		// current back url (if exists)
-		$back = "/";
+		$back = SWEET_FORUM_BASE_URL;
 		if(array_key_exists('back', $this->params->query)) {
 			$back = trim($this->params->query['back']);
 			if(empty($back)) $back = SWEET_FORUM_BASE_URL;
