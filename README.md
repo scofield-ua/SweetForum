@@ -9,7 +9,7 @@ SweetForum it's forum plugin for CakePHP 2 based on Bootstrap 3.
 ## Install
 
 #### Download
-* [SweetForum and SweetForumAdmin](https://github.com/scofield-ua/SweetForum/archive/master.zip)
+* [ZIP archive](https://github.com/scofield-ua/SweetForum/archive/master.zip)
 
 #### Installation
 1. Copy files to your `app` folder
