@@ -1,7 +1,10 @@
 SweetForum
 ==========
 
-Demo: http://sf.saydima.com/forum/
+SweetForum it's forum plugin for CakePHP 2 based on Bootstrap 3.
+![forum homepage](http://sf.saydima.com/img/github/forum.png)
+
+**[Demo](http://sf.saydima.com/forum/)**
 
 ## Install
 
