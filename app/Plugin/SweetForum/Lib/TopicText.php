@@ -10,7 +10,7 @@ class TopicText {
      *  @param $type string Resource content type (ex. video, audio...)
      *  @return string
      */
-    private function getIframeNotLoadLink($url, $type) {
+    public function getIframeNotLoadLink($url, $type) {
         return "<a href='{$url}' class='iframe-to-load' data-content-type='{$type}' data-url='".self::$load_iframe_action_url."' target='_blank'>{$url}</a>";
     }
     
@@ -161,7 +161,7 @@ class TopicText {
     *   @param string $url
     *   @return array|string
     */
-    function getImage($url) {
+    public static function getImage($url) {
         // default options
         $options = self::$options;
         
@@ -259,7 +259,7 @@ class TopicText {
         return $url;
     }
     
-    /*
+    /**
     *   Get social post data (supported: twitter)
     *   @return array|string
     */

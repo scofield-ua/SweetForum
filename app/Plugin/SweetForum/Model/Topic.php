@@ -82,7 +82,7 @@ class Topic extends SweetForumAppModel {
         )
     );
 
-    function afterFind($results) {
+    function afterFind($results, $primary = false) {
         if(!isset($this->dontTouchTitle)) {
             if(count($results) == 1) {
                 if(array_key_exists('Topic', $results)) {

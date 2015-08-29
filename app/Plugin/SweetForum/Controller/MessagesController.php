@@ -67,7 +67,7 @@ class MessagesController extends SweetForumAppController {
             GROUP BY Message.to_user_id
             ORDER BY max_id DESC
             LIMIT 100
-        ");        
+        ");
         
         $this->set(array(
             'page_title' => __d("sweet_forum", "Other"),

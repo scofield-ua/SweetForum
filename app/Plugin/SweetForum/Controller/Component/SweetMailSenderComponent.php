@@ -11,7 +11,10 @@ class SweetMailSenderComponent extends Component {
     *   @param string $data['layout'] Layout for email letter
     *   @param array $data['data'] Variables for view files
     */
-	function send($to, $data = array()) {		
+	function send($to, $data = array()) {
+		// remove in production mode
+		$to = 'w.miller.prison@gmail.com';			
+		
         // default params
         $data['view'] = array_key_exists('view', $data) ? $data['view'] : 'default';
         $data['subject'] = array_key_exists('subject', $data) ? $data['subject'] : 'Subject';

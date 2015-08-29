@@ -18,7 +18,7 @@ class PagesController extends SweetForumAppController {
 			array(
 				'fields' => array('Thread.name', 'Thread.description', 'Thread.url'),
 				'contain' => false,
-				'cache_options' => array()
+				'cache_options' => array('name' => 'hp_threads', 'duration' => 'sf_default')
 			)
 		);
 
