@@ -7,7 +7,7 @@ class UserInfo extends SweetForumAppModel {
         'username' => array(
             'reg_exp' => array(
                 'rule' => '/^[a-zA-Z0-9]+/',
-                'message' => 'Поле может иметь только цифры и буквы латинского алфавита',
+                'message' => 'This field can contain only A-Z symbols and numbers',
                 'allowEmpty' => true
             ),
             'length' => array(
@@ -22,13 +22,13 @@ class UserInfo extends SweetForumAppModel {
         'name' => array(
             'notEmpty' => array(
                 'rule' => 'notEmpty',
-                'message' => 'Значение поля не может быть пустым',
+                'message' => 'Empty value',
                 'required' => true
             )
         )
     );
 
-    function beforeSave() {
+    function beforeSave($options = array()) {
         if(array_key_exists('Info', $this->data)) {
             if(array_key_exists('username', $this->data['Info'])) $this->data['Info']['username'] = strtolower($this->data['Info']['username']);
         }

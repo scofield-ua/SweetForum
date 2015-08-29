@@ -1,6 +1,6 @@
 <?php
 class CommentsController extends SweetForumAppController {
-    public $uses = array('SweetForum.Comment');
+    public $uses = array('SweetForum.Comment', 'SweetForum.Topic');
     
     function beforeFilter() {
         parent::beforeFilter();
@@ -11,46 +11,49 @@ class CommentsController extends SweetForumAppController {
         Cache::delete('topic_'.md5($url.'2'), 'sf_default');
     }
 
-    function add($data, $f) {
-        $this->request->data = $data;
-        if(array_key_exists('Comment', $this->request->data)) {
-            $this->Comment->Info->set($this->request->data);
-            if($this->Comment->Info->validates(array('fieldList' => array('text')))) {
-                // check for repeat
-
-                $check = $this->Comment->find('first',
-                    array(
-                        'conditions' => array(
-                            'AND' => array(
-                                'Comment.created > timestampadd(minute, -2, now())',
-                                'Comment.user_id' => AuthComponent::user('User.id'),
-                                'Comment.topic_id' => $f['Topic']['id'],
-                                'Comment.status' => 0,
-                                'Info.text' => trim($this->request->data['Info']['text'])
-                            )
-                        ),
-                        'fields' => array('Comment.id'),
-                        'contain' => array('Info')
-                    )
-                );
-                if(!empty($check)) {
-                    SessionComponent::setFlash(__d("sweet_forum", "You already add such comment"), 'default', array('class' => 'alert alert-danger margin-top15'));
-                    return false;
-                }
-
+    function add($topic_url = null) {
+        $this->autoRender = false;
+        
+        if($topic_url === null) throw new NotFoundException();
+        
+        $this->Topic->recursive = -1;
+        $topic = $this->Topic->findByUrl($topic_url);
+        if(empty($topic)) throw new NotFoundException();
+        
+        $this->Comment->Info->set($this->request->data);
+        if($this->Comment->Info->validates(array('fieldList' => array('text')))) {
+            // check for repeat
+            $check = $this->Comment->find('first',
+                array(
+                    'conditions' => array(
+                        'AND' => array(
+                            'Comment.created > timestampadd(minute, -2, now())',
+                            'Comment.user_id' => $this->Auth->user('User.id'),
+                            'Comment.topic_id' => $topic['Topic']['id'],
+                            'Comment.status' => 0,
+                            'Info.text' => trim($this->request->data['Info']['text'])
+                        )
+                    ),
+                    'fields' => array('Comment.id'),
+                    'contain' => array('Info')
+                )
+            );
+            if(!empty($check)) {
+                $this->Session->setFlash(__d("sweet_forum", "You already add such comment"), 'default', array('class' => 'alert alert-danger margin-top15'));
+            } else {
                 $data = array(
                     'Comment' => array(
                         'hash_id' => md5(date('Ymdhis').microtime().AuthComponent::user('User.id').$f['Topic']['id']),
-                        'user_id' => AuthComponent::user('User.id'),
-                        'topic_id' => $f['Topic']['id'],
+                        'user_id' => $this->Auth->user('User.id'),
+                        'topic_id' => $topic['Topic']['id'],
                     ),
                     'Info' => array(
                         'text' => $this->request->data['Info']['text']
                     )
                 );
-
-                if(array_key_exists('answer_to', $this->request->data['Comment'])) { // if answer
-                    $val = trim($this->request->data['Comment']['answer_to']);
+                
+                if($this->request->data('Comment.answer_to') !== null) {
+                    $val = trim($this->request->data('Comment.answer_to'));
                     if(!empty($val)) {
                         // check comment
                         $this->Comment->recursive = -1;
@@ -60,24 +63,32 @@ class CommentsController extends SweetForumAppController {
                         }
                     }
                 }
-
+    
                 if($this->Comment->saveAssociated($data, array('validate' => true))) {
-                    $this->_deleteTopicCache($f['Topic']['url']);
-                    SessionComponent::write('Tmp.hash', $data['Comment']['hash_id']);
-                    SessionComponent::setFlash(__d("sweet_forum", "Comment was added"), 'default', array('class' => 'alert alert-success margin-top15'));
-                    return true;
+                    $comment_id = $this->Comment->id;
+                    
+                    $this->_deleteTopicCache($topic['Topic']['url']);
+                    $this->Session->setFlash(__d("sweet_forum", "Comment was added"), 'default', array('class' => 'alert alert-success margin-top15'));
+                    
+                    App::uses('MailMessagesController', 'SweetForum.Controller');
+                    $mm = new MailMessagesController();
+                    $mm->send($topic['Topic']['user_id'], 1, array('topic_id' => $topic['Topic']['id']));
                 } else {
-                    SessionComponent::setFlash(__d("sweet_forum", "Error. Comment not added"), 'default', array('class' => 'alert alert-danger margin-top15'));
+                    $this->Session->setFlash(__d("sweet_forum", "Error"), 'default', array('class' => 'alert alert-danger margin-top15'));
                 }
-            } else {
-                SessionComponent::setFlash(__d("sweet_forum", "Error. Comment not added"), 'default', array('class' => 'alert alert-danger margin-top15'));
             }
+        } else {
+            $this->Session->setFlash(__d("sweet_forum", "Error"), 'default', array('class' => 'alert alert-danger margin-top15'));
         }
+        
+        $url = isset($comment_id) ? SWEET_FORUM_BASE_URL.'topic/'.$topic['Topic']['url'].'#c-'.$comment_id : SWEET_FORUM_BASE_URL.'topic/'.$topic['Topic']['url'].'#flashMessage';        
+        $this->redirect($url);
+        
         return false;
     }
 
-    function edit($hash_id = false) {
-        if($hash_id === false) throw new NotFoundException();
+    function edit($hash_id = null) {
+        if($hash_id === null) throw new NotFoundException();
 
         // check comment
         $f = $this->Comment->find('first',

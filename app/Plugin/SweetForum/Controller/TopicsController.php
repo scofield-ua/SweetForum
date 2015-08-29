@@ -166,19 +166,6 @@ class TopicsController extends SweetForumAppController {
             if(empty($f)) throw new NotFoundException();
             else Cache::write($c_n, $f, $c_d);
         }
-        
-        if($this->request->is('post')) { // if POST, connect Comments controller and call add method
-            App::uses('CommentsController', 'SweetForum.Controller');
-            $comments = new CommentsController();
-            $res = $comments->add($this->request->data, $f);
-            if($res) {
-                App::uses('MailMessagesController', 'SweetForum.Controller');
-                $mm = new MailMessagesController();                
-                $mm->send($f['Topic']['user_id'], 1, array('topic_id' => $f['Topic']['id']));
-                
-                $this->redirect(SWEET_FORUM_BASE_URL.'topic/'.$f['Topic']['url'].'#c-'.$this->Session->read('Tmp.hash'));
-            }
-        }
 
         # подключаем нужные хелперы\библиотеки
         App::uses('PrettyTime', 'SweetForum.View/Helper');
