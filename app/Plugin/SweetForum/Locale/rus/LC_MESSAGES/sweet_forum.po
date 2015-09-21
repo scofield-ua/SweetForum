@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lemonius\n"
 "POT-Creation-Date: 2014-04-27 17:04+0200\n"
-"PO-Revision-Date: 2015-08-29 19:02+0200\n"
+"PO-Revision-Date: 2015-09-21 16:06+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -499,3 +499,9 @@ msgstr "Ошибка доступа"
 
 msgid "Report accepted. This topic will be removed after 20 reports"
 msgstr "Ваше обращение принято. Эта тема будет скрыта после 20 обращений"
+
+msgid "changed"
+msgstr "изменено"
+
+msgid "Admin dashboard"
+msgstr "Админ панель"
